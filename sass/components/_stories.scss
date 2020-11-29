@@ -1,0 +1,91 @@
+.stories{
+    width: 75%;
+    background-color: rgba($color-white, 0.3);
+    padding: 6rem 8rem;
+    margin: 0 auto;
+    border-radius: .3rem;
+    box-shadow: 0 .5rem 1rem rgba($color-dark, 0.2);
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    @include respond(tab-port){
+        width: 100%;
+        padding: 3rem 5.5rem;
+    }
+
+    @include respond(phone){
+        transform: skewX(0deg);
+    }
+
+    &__shape{
+        width: 13rem;
+        height: 15rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        background-color: white;
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+
+        @include respond(tab-port){
+            height: 14rem;
+            transform: translateX(-4rem) skewX(12deg);
+        }
+
+        @include respond(phone){
+            transform: translate(-4rem) skewX(0deg);
+        }
+    }
+
+    &__text{
+        transform: skewX(2deg);
+
+        @include respond(tab-port){
+            transform: skewX(12deg);
+        }
+
+        @include respond(phone){
+            transform: skewX(0deg);
+        }
+    }
+
+    &-img{
+        height: 100%;
+        transform: scale(1.5) translateX(-3rem);
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    &__caption{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -10%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+
+    }
+
+    &:hover &__caption{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    &:hover &-img{
+        filter: blur(.5rem) brightness(80%);
+        transform: scale(1) translateX(-3rem);
+        
+    }
+}
+
+
+
