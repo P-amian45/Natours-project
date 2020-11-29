@@ -1,0 +1,47 @@
+
+*, 
+*::after, 
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html{
+    // What 1rem is; 1rem=10px
+    font-size: 62.5%;
+    // 1rem = 5px for phone
+
+    
+    @include respond (under-desktop){ // width /equal or/ < 1400px just for Popup section
+        font-size: 50%; // 1rem = 8px
+    }
+
+    @include respond (tab-land){  // width /equal or/ < 1200px
+        font-size: 56.25%; // 1rem = 9px
+    }
+
+    @include respond (tab-port){ // width /equal or/ < 900px
+        font-size: 50%; // 1rem = 8px
+    }
+
+    @include respond (big-desktop){ // width equal or larger than 1800px
+        font-size: 75%; // 1rem = 12px
+    }
+
+}
+
+body{
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond (tab-port){ 
+        padding: 0rem;
+    }
+
+}
+
+::selection{
+    background-color: $color-primary-light;
+    color: $color-white ;
+}
