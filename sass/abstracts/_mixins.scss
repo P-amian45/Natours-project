@@ -1,0 +1,47 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+// MEDIA QUERY MANAGER
+
+/*
+
+0 - 600px: phone
+600 - 900px: tablet-portait
+900 - 1200px: tablet-landscape
+[1200 - 1800px]: laptop
+1800 + : Big laptop
+> 1399px : particularity for Popup section
+*/
+
+/*
+$breakpoint choices
+- phone
+- tab-port
+- tab-land
+_ big-desktop
+_ under-desktop
+*/
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width:37.5em) {@content}; // 1em 16px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width:56.25em) {@content};  // 1em 16px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width:75em) {@content}; // 1em 16px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width:112.5em) {@content}; // 1em 16px
+    }
+    @if $breakpoint == under-desktop {
+        @media only screen and (max-width:87.4em) {@content}; // 1em 16px
+    }
+}
